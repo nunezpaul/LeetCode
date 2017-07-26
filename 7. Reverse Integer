@@ -14,13 +14,9 @@ class Solution(object):
         :rtype: int
         """        
         if x > 0:
-            hold = list(str(x))
-            hold.reverse()
-            hold = int(''.join(hold))
+            hold = int(str(x)[::-1])
         else:
-            hold = list(str(abs(x)))
-            hold.reverse()
-            hold = int(''.join(hold))
+            hold = int(str(abs(x))[::-1])
             hold = hold*-1
         
         if abs(hold) < 2147483647:
