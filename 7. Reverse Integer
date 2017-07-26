@@ -1,0 +1,23 @@
+#Example1: x = 123, return 321
+#Example2: x = -123, return -321
+
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """        
+        if x > 0:
+            hold = list(str(x))
+            hold.reverse()
+            hold = int(''.join(hold))
+        else:
+            hold = list(str(abs(x)))
+            hold.reverse()
+            hold = int(''.join(hold))
+            hold = hold*-1
+        
+        if abs(hold) < 2147483647:
+            return hold
+        else:
+            return 0
