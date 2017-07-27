@@ -1,0 +1,30 @@
+'''
+Given a roman numeral, convert it to an integer.
+
+Input is guaranteed to be within the range from 1 to 3999.
+'''
+
+class Solution(object):
+    
+    def mul(self, value, sign):
+        return value*sign
+    
+    def RomanSum(self, first, second):
+        if first >= second:
+            return 1
+        else:
+            return -1
+            
+    def convert(self,s):
+        dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M':1000}
+        return dict[s]
+    
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        list = map(self.convert, s)
+        operation = map(self.RomanSum, list[:-1], list[1:])
+        mult = map(self.mul,list[:-1], operation)
+        return sum(mult)+list[-1]
