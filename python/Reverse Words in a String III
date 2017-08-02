@@ -1,0 +1,18 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        #split individual words
+        split = s.split()
+        
+        #reverse individual words
+        out = map(self.revString, split)
+        
+        #combine the reversed words into a single string with a space between
+        return ' '.join(out)
+    
+
+    def revString(self,string):
+        return string[::-1]
