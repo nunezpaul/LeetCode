@@ -1,0 +1,20 @@
+'''
+
+Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+
+Example: 5 -> 2
+'''
+
+class Solution(object):
+    def findComplement(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        binx = bin(num)[2:]
+        out = map(self.swap, list(binx))
+        out = ''.join(out)
+        return int(out,2)
+
+    def swap(self,bitx):
+        return str(int(not(bool(int(bitx)))))
