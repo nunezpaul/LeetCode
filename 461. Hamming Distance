@@ -11,16 +11,23 @@ class Solution(object):
         :type y: int
         :rtype: int
         """
+        #convert to binary
         binx = bin(x)[2:]
         biny = bin(y)[2:]
         
+        #fill in necessary leading zeros
         if len(binx) > len(biny):
             biny = biny.zfill(len(binx))
         else:
             binx = binx.zfill(len(biny))
         
+        #check what's the difference between bits
         out = map(self.check, binx, biny)
+        
+        #sum the differences and return the total
         return sum(out)
     
     def check(self, bitx, bity):
         return bitx != bity
+
+#runtime is faster than 86% of all python submissions
