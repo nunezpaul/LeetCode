@@ -1,0 +1,25 @@
+'''
+Write a program that outputs the string representation of numbers from 1 to n.
+
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+'''
+
+class Solution(object):
+    def fizzBuzz(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        
+        hold = range(1,n+1)
+        return map(self.replace, hold)
+        
+    def replace(self, n):
+        if n%3 == 0 and n%5 == 0:
+            return "FizzBuzz"
+        elif n%3 ==0:
+            return "Fizz"
+        elif n%5==0:
+            return "Buzz"
+        else:
+            return str(n)
