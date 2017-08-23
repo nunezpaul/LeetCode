@@ -18,18 +18,26 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        #convert strings to list
-        listA = list(ransomNote)
-        listB = list(magazine)
-
-        #remove all the letters necessary for to create ransomNote
-        try:
-            for i in listA:
-                listB.remove(i)
-        except:
-            #if an error is thrown then not all letters are present. Return False
-            return False
-        #if all letters are present then return True
-        return True
+        #A = ransomNote
+        #B = magazine
         
-#faster than 73% of all submissions
+        setA = set(ransomNote)
+        setB = set(magazine)
+        
+        #Are all the letters present in the magazine to make a ransomNote?
+        if (setA.intersection(setB) != setA):
+            #if no then proceed no further
+            return False
+        else:
+            #create empty dictionary to populate with how many letters we have available
+            table =  {}
+            #fill dictionary with the letters we have available 
+            for i in setB: table[i] = 0
+            for i in list(magazine): table[i] += 1 #fill how many letters we have available
+            for i in list(ransomNote):
+                    table[i] -=1
+                    if table[i] < 0:
+                        return( False )
+            return( True )
+        
+#faster than 88% of all submissions
