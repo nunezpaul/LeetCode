@@ -25,3 +25,5 @@ class Solution(object):
         
         #return the correct data type
         return list(C)
+
+#beats 73% of all submissions in speed
