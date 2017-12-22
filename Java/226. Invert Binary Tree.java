@@ -1,4 +1,4 @@
-'''
+/**
 
 Invert a binary tree.
      4
@@ -18,6 +18,7 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
 
 '''
 
+*/
 
 /**
  * Definition for a binary tree node.
@@ -56,3 +57,5 @@ class Solution {
         
         }
     }
+
+/* runs faster than 15% of submissions
