@@ -40,10 +40,12 @@ class Solution(object):
                 root.right = hold
                 root.left = self.invertTree(root.left)
                 root.right = self.invertTree(root.right)
+                    
             elif root.left is not None:
                 root.right = root.left
                 root.right = self.invertTree(root.right)
                 root.left = None
+                    
             elif root.right is not None:
                 root.left = root.right
                 root.left = self.invertTree(root.left)
