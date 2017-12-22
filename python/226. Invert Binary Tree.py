@@ -50,3 +50,5 @@ class Solution(object):
                 root.right = None
             
         return root
+
+#runtime beats 94% of python submissions
