@@ -44,13 +44,14 @@ class fileSystem(object):
     del(open[position])
     return 1
     #Depiction of writeData(n)
-    #Before:
+    #                   Before:
     #      _______       _______       _______
     #     |       | ->  |       | ->  |       |
     #     |  n-1  |     |   n   |     |  n+1  |
     #     |_______| <-  |_______| <-  |_______|
     #
-    #After:    ___________________________
+    #                     After:
+    #          ___________________________
     #         |    filled[n].prev.next    | 
     #      ___|___       _______       ___v___
     #     |       |     |       | ->  |       |
