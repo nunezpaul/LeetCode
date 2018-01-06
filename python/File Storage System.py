@@ -3,16 +3,19 @@
 Develop a system that keeps track of Disk that is subdivided in N partitions. 
 Function writeData(position), will fill that position and should be marked as unavailable. Return 1 if available or -1 if not.
 Function nextOpen(position), will find the next open position available for data to be written to. If the position has data written to it then return -1 otherwise return the position of the next available slot.
+Function deleteData(position), will mark that a position open and available for data to be written to. Return 1 if data was deleted or -1 if alraedy empty.
 
 Example:
+test = fileSystem(10)
 
-writeData(10) -> 1
-writeData(10) -> -1
-nextOpen(10) -> -1
-nextOpen(9) -> 11
-deleteData(9) -> -1
-deleteData(10) -> 1
-nextOpen(9) -> 10
+test.nextOpen(9) -> 10
+test.writeData(10) -> 1
+test.writeData(10) -> -1
+test.nextOpen(10) -> -1
+test.nextOpen(9) -> 11
+test.deleteData(9) -> -1
+test.deleteData(10) -> 1
+test.nextOpen(9) -> 10
 
 '''
 
