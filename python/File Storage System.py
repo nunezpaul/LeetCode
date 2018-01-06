@@ -10,6 +10,9 @@ writeData(10) -> 1
 writeData(10) -> -1
 nextOpen(10) -> -1
 nextOpen(9) -> 11
+deleteData(9) -> -1
+deleteData(10) -> 1
+nextOpen(9) -> 10
 
 '''
 
@@ -39,6 +42,17 @@ class fileSystem(object):
     self.open[position].next.prev = self.open[position].prev
     filled[position] = open[position]
     del(open[position])
+    return 1
+  
+  def deleteData(position):
+    if position not in self.filled:
+      return -1
+    self.filled.prev
+    #reattach pointers such that the position of the filled data around it points towards it 
+    self.filled[position].prev.next = self.filled[position]
+    self.filled[position].next.prev = self.filled[position]
+    open[position] = filled[position]
+    del(filled[position])
     return 1
     
   def nextOpen(position):
