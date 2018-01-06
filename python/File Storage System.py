@@ -43,6 +43,23 @@ class fileSystem(object):
     filled[position] = open[position]
     del(open[position])
     return 1
+    #Depiction of writeData(n)
+    #Before:
+    #      _______       _______       _______
+    #     |       | ->  |       | ->  |       |
+    #     |  n-1  |     |   n   |     |  n+1  |
+    #     |_______| <-  |_______| <-  |_______|
+    #
+    #After:    ___________________________
+    #         |    filled[n].prev.next    | 
+    #      ___|___       _______       ___v___
+    #     |       |     |       | ->  |       |
+    #     |  n-1  |     |   n   |     |  n+1  |
+    #     |_______| <-  |_______|     |_______|
+    #         ^                           |
+    #         |    filled[n].next.prev    |
+    #         |___________________________|
+  
   
   def deleteData(position):
     if position not in self.filled:
@@ -54,6 +71,24 @@ class fileSystem(object):
     open[position] = filled[position]
     del(filled[position])
     return 1
+
+    #Depiction of deleteData(n)
+    #                   Before:
+    #          ___________________________
+    #         |    filled[n].prev.next    | 
+    #      ___|___       _______       ___v___
+    #     |       |     |       | ->  |       |
+    #     |  n-1  |     |   n   |     |  n+1  |
+    #     |_______| <-  |_______|     |_______|
+    #         ^                           |
+    #         |    filled[n].next.prev    |
+    #         |___________________________|
+    #
+    #                     After:
+    #      _______       _______       _______
+    #     |       | ->  |       | ->  |       |
+    #     |  n-1  |     |   n   |     |  n+1  |
+    #     |_______| <-  |_______| <-  |_______|    
     
   def nextOpen(position):
     if position not in self.open:
