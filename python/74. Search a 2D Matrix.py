@@ -28,20 +28,24 @@ class Solution(object):
             return False
         
         column = len(matrix[0])
-        if column <1:
-            return False
         
         j = 0
         i = column-1
         
-        print(row, column)
-        
         #set up our boundary for our search matrix
-        while i > -1 and j < row:
-            print(matrix[j][i])
+        while i >= 0 and j <= row-1:
+
             if matrix[j][i] == target:
                 return True
             
+            elif matrix[j][i] > target:
+                i-=1
+                
+            elif matrix[j][i] < target:
+                j+=1
+        
+        #if we exceed any parameter then we hit the boundary and return False
+        return False
             elif matrix[j][i] > target:
                 i-=1
                 
