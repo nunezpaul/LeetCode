@@ -37,7 +37,7 @@ class Solution(object):
         print(row, column)
         
         #set up our boundary for our search matrix
-        while i > -1 and i < column and j > -1 and j < row:
+        while i > -1 and j < row:
             print(matrix[j][i])
             if matrix[j][i] == target:
                 return True
