@@ -18,7 +18,8 @@ If nums = [1,2,3], a solution is:
   []
 ]
 
-O(N*2**N)
+Time: O(N*2**N)
+Space: O(2**N)
 
 '''
 
